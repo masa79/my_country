@@ -1,0 +1,24 @@
+%header
+  .index-header
+    .index-header__left
+      = link_to root_path, class: "index-header__left--title" do
+        My Country
+    .index-header__right
+      - if user_signed_in?
+        .index-header__right--login
+          %ul.devise-login
+            %li
+              = link_to "", class: "my_post" do
+                %span 投稿一覧
+            %li
+              = link_to destroy_user_session_path, class: "log-out" do
+                ログアウト
+      - else
+        .index-header__right--logout
+          %ul.devise-logout
+            %li
+              = link_to new_user_registration_path, class: "new-user-registration" do
+                新規会員登録
+            %li
+              = link_to new_user_session_path, class: "log-in" do
+                ログイン
