@@ -1,0 +1,89 @@
+%header
+  地域を紹介する
+.presentation
+  .presentation__contents
+    = form_with model: Local.new do |f|
+      .presentation__contents__image
+        %p.image__top PR画像
+        %p.image__top--text 最大10枚まで投稿出来ます
+        %ul.presentation__contents__image__preview
+          //画像投稿フォーム
+          = f.fields_for :images do |fi|
+            .presentation__contents__image__preview--upload
+              %p ドラッグアンドドロップ
+              %p またはファイルを選択してアップロード
+            = fi.file_field :url, autofocus: true, name: "images[0][url]", class: "presentation__image--upload", id: "image1"
+          
+      // タイトル入力フォーム
+      .presentation__contents__title
+        .form
+          %span.form__title タイトルを入力してください
+          .form__input
+            =f.text_field :title, autofocus: true, placeholder: "紹介タイトル(必須)", class: "form__input--title", maxlength: '30'
+
+      // 都道府県名入力フォーム
+      .presentation__contents__prefecture
+        .form
+          %span.form__prefecture 紹介する地域の都道府県名を入力してください
+          .form__input
+            =f.text_field :prefecture, autfocus: true, placeholder: "都道府県名(必須)", class: "form__input--prefecture", maxlength: '30'
+
+      // 市区町村名入力フォーム
+      .presentation__contents__city
+        .form
+          %span.form__city 紹介する地域の市区町村名を入力してください
+          .form__input
+            =f.text_field :city, autofocus: true, placeholder: "市区町村名(必須)", class: "form__input--city", maxlength: '30'
+
+      // 地域説明フォーム
+      .presentation__contents__description
+        .form
+          %span.form__description 地域のPR文
+          .form__input
+            =f.text_area :description, autofocus: true, placeholder: "地域の紹介(必須)", class: "form__input--description"
+
+      // 周辺施設情報
+      .presentation__contents__institution
+        %span.institution__top 周辺施設情報
+
+        // レストラン情報
+        .presentation__contents__institution--restaurant
+          .form
+            %span.form__restaurant 地域の料理店を紹介しよう
+            .form__input
+              =f.text_field :restaurant, autofocus: true, placeholder: "料理店の紹介", class: "form__input--restaurant"
+
+        // スーパーの情報
+        .presentation__contents__institution--super
+          .form
+            %span.form__super 地域のコンビニやスーパーを紹介しよう
+            .form__input
+              =f.text_field :super, autofocus: true, placeholder: "スーパーの紹介", class: "form__input--super"
+
+        // 大型複合施設の情報
+        .presentation__contents__institution--department
+          .form
+            %span.form__department 地域の大型複合施設(デパートやショッピングモール等)を紹介しよう
+            .form__input
+              =f.text_field :department, autofocus: true, placeholder: "大型複合施設の紹介", class: "form__input--department"
+
+        // 観光地の情報
+        .presentation__contents__institution--spot
+          .form
+            %span.form__spot 地域のお勧め観光スポットを紹介しよう
+            .form__input
+              =f.text_field :tourist_spot, autofocus: true, placeholder: "観光地の紹介", class: "form__input--spot"
+
+        // 最寄駅の情報
+        .presentation__contents__institution--station
+          .form
+            %span.form__station 最寄駅の情報
+            .form__input
+              =f.text_field :station, autofocus: true, placeholder: "最寄駅の情報", class: "form__input--station"
+
+        // インターチェンジの情報
+        .presentation__contents__institution--interchange
+          .form
+            %span.form__interchange 最寄インターチェンジの情報
+            .form__input
+              =f.text_field :interchange, autofocus: true, placeholder: "インターチェンジの情報", class: "form__input--interchange"
