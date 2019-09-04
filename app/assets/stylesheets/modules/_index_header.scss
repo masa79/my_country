@@ -43,5 +43,29 @@
         }
       }
     }
+    &--login {
+      li {
+        display: inline;
+        margin-right:30px;
+        line-height: 20px;
+        .my_post {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+      li {
+        display: inline;
+        margin-right:30px;
+        line-height: 20px;
+        .log-out {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+    }
   }
 }
