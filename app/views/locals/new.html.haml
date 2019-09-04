@@ -1,39 +1,57 @@
-%header
+= render 'shared/index_header'
+
+%header.new_top
   地域を紹介する
 .presentation
   .presentation__contents
-    = form_with model: Local.new do |f|
+    = form_for @local do |f|
       .presentation__contents__image
         %p.image__top PR画像
-        %p.image__top--text 最大10枚まで投稿出来ます
-        %ul.presentation__contents__image__preview
+        %span.image__top--text 必須
+        %ul.image-upload__preview
           //画像投稿フォーム
           = f.fields_for :images do |fi|
-            .presentation__contents__image__preview--upload
-              %p ドラッグアンドドロップ
-              %p またはファイルを選択してアップロード
-            = fi.file_field :url, autofocus: true, name: "images[0][url]", class: "presentation__image--upload", id: "image1"
-          
+            // プラン1
+            .dropzone-container.clearfix
+              %p ファイルを選択してアップロード
+              .dropzone-area
+                = fi.file_field :url, autofocus: true, name: "images[0][url]", id: "upload-image", class: "upload-image"
+              #preview
+            -# // プラン2
+            -# .dropzone-container.clearfix
+            -#   %p ドラッグアンドドロップ
+            -#   %p またはファイルを選択してアップロード
+            -#   #preview
+            -#   .dropzone-area
+            -#     = fi.label :url, class: "dropzone-box", for: "upload-image" do
+            -#       .input_area
+            -#         = fi.file_field :url, multiple: true, name: "images[image][]", id: "upload-image", class: "upload-image", 'data-image': 0
+            -#       %p ここをクリックしてください
+            -#   #preview2
+            -#   .dropzone-area2
+            -#     = fi.label :url, class: "dropzone-box", for: "upload-image" do
+            -#       %p ここをクリックしてください
+
       // タイトル入力フォーム
       .presentation__contents__title
         .form
           %span.form__title タイトルを入力してください
           .form__input
-            =f.text_field :title, autofocus: true, placeholder: "紹介タイトル(必須)", class: "form__input--title", maxlength: '30'
+            =f.text_field :title, autofocus: true, placeholder: "紹介タイトル(必須)", class: "form__input--title"
 
       // 都道府県名入力フォーム
       .presentation__contents__prefecture
         .form
           %span.form__prefecture 紹介する地域の都道府県名を入力してください
           .form__input
-            =f.text_field :prefecture, autfocus: true, placeholder: "都道府県名(必須)", class: "form__input--prefecture", maxlength: '30'
+            =f.text_field :prefecture, autfocus: true, placeholder: "都道府県名(必須)", class: "form__input--prefecture"
 
       // 市区町村名入力フォーム
       .presentation__contents__city
         .form
           %span.form__city 紹介する地域の市区町村名を入力してください
           .form__input
-            =f.text_field :city, autofocus: true, placeholder: "市区町村名(必須)", class: "form__input--city", maxlength: '30'
+            =f.text_field :city, autofocus: true, placeholder: "市区町村名(必須)", class: "form__input--city"
 
       // 地域説明フォーム
       .presentation__contents__description
@@ -58,7 +76,7 @@
           .form
             %span.form__super 地域のコンビニやスーパーを紹介しよう
             .form__input
-              =f.text_field :super, autofocus: true, placeholder: "スーパーの紹介", class: "form__input--super"
+              =f.text_field :supermarket, autofocus: true, placeholder: "スーパーの紹介", class: "form__input--super"
 
         // 大型複合施設の情報
         .presentation__contents__institution--department
@@ -87,3 +105,6 @@
             %span.form__interchange 最寄インターチェンジの情報
             .form__input
               =f.text_field :interchange, autofocus: true, placeholder: "インターチェンジの情報", class: "form__input--interchange"
+
+      .presentation__contents__finish
+        = f.submit "送信", class: "presentation__contents__finish--btn"

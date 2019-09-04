@@ -39,8 +39,10 @@ ActiveRecord::Schema.define(version: 2019_08_19_124811) do
     t.string "station"
     t.string "interchange"
     t.text "description", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_locals_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -56,4 +58,5 @@ ActiveRecord::Schema.define(version: 2019_08_19_124811) do
   end
 
   add_foreign_key "images", "locals"
+  add_foreign_key "locals", "users"
 end

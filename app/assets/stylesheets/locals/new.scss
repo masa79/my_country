@@ -1,0 +1,115 @@
+.new_top {
+  margin: 20px 220px 20px;
+  font-weight: bold;
+  font-size: 30px;
+  height: 80px;
+  width: 400px;
+  background-color: rgb(136, 143, 158);
+  text-align: center;
+  line-height: 80px;
+  color: white;
+  border-radius: 10px;
+}
+.presentation {
+  padding: 0.5em 1em;
+  margin: 2em 220px;
+  width: 962px;
+  font-weight: bold;
+  font-size: 20px;
+  background: #FFF;
+  border: solid 3px rgb(119, 238, 40);
+  border-radius: 10px;   /* 角に丸みをつける */
+
+  .image__top {
+    display: inline-block;
+    font-size: 20px;
+  }
+  .image__top--text {
+    display: inline;
+    font-size: 15px;
+    color: red;
+  }
+  .image-upload__preview {
+    border: dashed 2px rgb(40, 132, 238);
+    border-radius: 10px;
+    .upload-image {
+      margin-bottom: 10px;
+    }
+  }
+
+  .form__input {
+    margin-top: 10px;
+    &--title {
+      width: 500px;
+      height: 25px;
+      border-radius: 5px;
+    }
+    &--prefecture {
+      width: 500px;
+      height: 25px;
+      border-radius: 5px;
+    }
+    &--city {
+      width: 500px;
+      height: 25px;
+      border-radius: 5px;
+    }
+    &--restaurant {
+      width: 500px;
+      height: 25px;
+      border-radius: 5px;
+    }
+    &--super {
+      width: 500px;
+      height: 25px;
+      border-radius: 5px;
+    }
+    &--department {
+      width: 500px;
+      height: 25px;
+      border-radius: 5px;
+    }
+    &--spot {
+      width: 500px;
+      height: 25px;
+      border-radius: 5px;
+    }
+    &--station {
+      width: 500px;
+      height: 25px;
+      border-radius: 5px;
+    }
+    &--interchange {
+      width: 500px;
+      height: 25px;
+      border-radius: 5px;
+    }
+  }
+  textarea {
+    width: 800px;
+    height: 100px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+  }
+–
+  .form {
+    padding-top: 30px;
+  }
+
+  &__contents__finish {
+    padding: 30px 433px;
+    &--btn {
+      cursor: pointer;
+      border: 2px solid rgb(10, 166, 228);
+      font-size: 25px;
+      background-color: rgb(10, 166, 228);
+      color: white;
+      border-radius: 5px;
+      transition: .3s;
+    }
+    &--btn:hover {
+      color: rgb(10, 166, 228);
+      background-color: white;
+    }
+  }
+}
