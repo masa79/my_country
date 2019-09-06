@@ -1,0 +1,62 @@
+.top__core {
+  padding-top: 20px;
+  
+  // 投稿画面への遷移
+  &__post {
+    text-align: center;
+    &--link {
+      cursor: pointer;
+      text-decoration: none;
+      border: 2px solid rgb(228, 10, 130);
+      font-size: 30px;
+      background-color: rgb(228, 10, 130);
+      color: white;
+      border-radius: 5px;
+      transition: .3s;
+    }
+    &--link:hover {
+      color: rgb(228, 10, 130);
+      background-color: white;
+    }
+  }
+
+  // 投稿一覧の表示
+  &__contents {
+    width: 1200px;
+    margin: 40px auto;
+    &__box {
+      width: 350px;
+      background: #eee;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px #ccc;
+      text-decoration: none;
+      &--link {
+        text-decoration: none;
+      }
+      &--image--url {
+        max-width: 100%;
+        height: auto;
+      }
+      &--title {
+        font-size: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #333;
+        font-weight: bold;
+      }
+      &--prefecture {
+        color: #333;
+        line-height: 1.5;
+        font-size: 15px;
+        display: inline-block;
+      }
+      &--city {
+        color: #333;
+        line-height: 1.5;
+        font-size: 15px;
+        display: inline;
+        margin-left: 15px;
+      }
+    }
+  }
+}

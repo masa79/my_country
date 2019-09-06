@@ -1,7 +1,7 @@
 class LocalsController < ApplicationController
    
   def index
-    @image = Image.find(6).url
+    @locals = Local.all
   end
 
   def new
