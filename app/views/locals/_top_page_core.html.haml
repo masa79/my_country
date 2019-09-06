@@ -1,5 +1,21 @@
 %article
   .top__core
+  
+    // 投稿画面への遷移
     .top__core__post
       = link_to new_local_path, class: "top__core__post--link" do
         投稿する
+
+    // 投稿一覧の表示
+    .top__core__contents
+      - @locals.each do |local|
+        .top__core__contents__box
+          = link_to "", class: "top__core__contents__box--link" do
+            .top__core__contents__box--image
+              = image_tag "#{local.images.first.url}", class: "top__core__contents__box--image--url"
+            .top__core__contents__box--title
+              = local.title
+            .top__core__contents__box--prefecture
+              = local.prefecture
+            .top__core__contents__box--city
+              = local.city
