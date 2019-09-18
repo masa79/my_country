@@ -10,7 +10,7 @@
     .top__core__contents
       - @locals.each do |local|
         .top__core__contents__box
-          = link_to "", class: "top__core__contents__box--link" do
+          = link_to local_path(local.id), class: "top__core__contents__box--link" do
             .top__core__contents__box--image
               = image_tag "#{local.images.first.url}", class: "top__core__contents__box--image--url"
             .top__core__contents__box--title

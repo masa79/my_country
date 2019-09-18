@@ -1,0 +1,10 @@
+= render 'shared/index_header'
+
+.comment
+  %h1 コメント一覧
+  .comment__index
+    - if @comments
+      - @comments.each do |comment|
+        %p
+          .comment__index__text
+            = comment.text

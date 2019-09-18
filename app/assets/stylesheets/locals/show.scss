@@ -1,0 +1,118 @@
+.locals {
+  margin: 0 auto;
+  width: 800px;
+  &__detail {
+    margin-top: 50px;
+    box-shadow: 0 2px 5px #ccc;
+    background: #eee;
+    h1 {
+      padding-top: 20px;
+      text-align: center;
+    }
+    &__top--line {
+      border-bottom: 3px solid rgb(160, 161, 159);
+    }
+    &__main {
+      margin: 0 auto;
+      &--image {
+        margin: 0 auto;
+        height: auto;
+        width: 600px;
+      }
+      &--bottom__line {
+        border-top: 3px solid rgb(160, 161, 159);
+        padding-bottom: 20px
+      }
+      &--prefecture {
+        display: inline-block;
+        padding-bottom: 20px;
+        font-weight: bold;
+      }
+      &--city {
+        margin-left: 50px;
+        display: inline;
+        font-weight: bold;
+      }
+      &--description {
+        padding-bottom: 20px;
+        font-weight: bold;
+      }
+      &--restaurant {
+        padding-bottom: 20px;
+        font-weight: bold;
+      }
+      &--supermarket {
+        padding-bottom: 20px;
+        font-weight: bold;
+      }
+      &--department {
+        padding-bottom: 20px;
+        font-weight: bold;
+      }
+      &--spot {
+        padding-bottom: 20px;
+        font-weight: bold;
+      }
+      &--station {
+        padding-bottom: 20px;
+        font-weight: bold;
+      }
+      &--interchange {
+        padding-bottom: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__comment__write__box {
+    margin: 20px 10px;
+    &--field {
+      width: 600px;
+      height: 60px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+    &--btn {
+      cursor: pointer;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+    }
+  }
+
+  &__comment__link {
+    margin: 20px 10px;
+    &--btn {
+      cursor: pointer;
+      text-decoration: none;
+      border: 2px solid rgb(228, 10, 130);
+      font-size: 20px;
+      background-color: rgb(228, 10, 130);
+      color: white;
+      border-radius: 5px;
+      transition: .3s;
+    }
+    &--btn:hover {
+      color: rgb(228, 10, 130);
+      background-color: white;
+    }
+  }
+
+  &__top__return {
+    margin: 30px 10px;
+    &--btn {
+      cursor: pointer;
+      border: 2px solid #ccc;
+      font-size: 20px;
+      background-color: #ccc;
+      color: white;
+      border-radius: 5px;
+      transition: .3s;
+      text-decoration: none;
+      font-weight: normal;
+    }
+    &--btn:hover {
+      color: #ccc;
+      background-color: white;
+    }
+  }
+}

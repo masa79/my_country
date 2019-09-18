@@ -1,1 +1,72 @@
 = render 'shared/index_header'
+
+.locals
+  // 紹介内容の詳細表示
+  .locals__detail
+    %h1
+      = @local.title
+    .locals__detail__top--line
+    .locals__detail__main
+      .locals__detail__main--image
+        = image_tag "#{@local.images.first.url}", class: "top__core__contents__box--image--url"
+      .locals__detail__main--bottom__line
+      .locals__detail__main--prefecture
+        都道府県:
+        = @local.prefecture
+      .locals__detail__main--city
+        市区町村:
+        = @local.city
+      .locals__detail__main--description
+        紹介文:
+        = @local.description
+      .locals__detail__main--restaurant
+        レストラン:
+        - if @local.restaurant.nil?
+          ""
+        - else
+          = @local.restaurant
+      .locals__detail__main--supermarket
+        スーパー:
+        - if @local.supermarket.nil?
+          ""
+        - else
+          = @local.supermarket
+      .locals__detail__main--department
+        デパート・ショッピングモール:
+        - if @local.department.nil?
+          ""
+        - else
+          = @local.department
+      .locals__detail__main--spot
+        観光地:
+        - if @local.tourist_spot.nil?
+          ""
+        - else
+          = @local.tourist_spot
+      .locals__detail__main--station
+        最寄りの駅:
+        - if @local.station.nil?
+          ""
+        - else
+          = @local.station
+      .locals__detail__main--interchange
+        最寄りのインターチェンジ:
+        - if @local.interchange.nil?
+          ""
+        - else
+          = @local.interchange
+  // コメント記入、投稿機能
+  .locals__comment
+    .locals__comment__write
+      = form_with model: @comment, url: local_comments_path(@local), local: true do |f|
+        .locals__comment__write__box
+          = f.text_area :text, class: "locals__comment__write__box--field"
+          = f.submit 'コメント', class: "locals__comment__write__box--btn"
+
+    .locals__comment__link
+      = link_to local_comments_path(@local), class: "locals__comment__link--btn" do
+        コメント一覧
+    
+  .locals__top__return
+    = link_to root_path, class: "locals__top__return--btn" do
+      戻る
