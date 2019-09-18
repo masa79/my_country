@@ -21,6 +21,10 @@ class LocalsController < ApplicationController
     end
   end
 
+  def show
+    @local = Local.find(params[:id])
+  end
+
   private
 
   def local_params
