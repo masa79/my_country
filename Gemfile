@@ -67,5 +67,7 @@ gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'carrierwave'
 gem 'jquery-rails'
-gem 'devise'
+gem "devise", ">= 4.7.1"
 gem "dropzonejs-rails", '~> 0.8.4'
+gem "nokogiri", ">= 1.10.4"
+gem 'erb2haml'

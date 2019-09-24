@@ -1,0 +1,33 @@
+.sessions {
+  margin: 0 auto;
+  border: solid 3px rgb(119, 238, 40);
+  width: 800px;
+  border-radius: 10px;
+  padding: 30px;
+  &__field {
+    margin-bottom: 30px;
+    font-size: 20px;
+    &__input--box {
+      width: 700px;
+      border-radius: 10px;
+    }
+  }
+  &__actions {
+    text-align: center;
+    padding: 20px 20px 0 0;
+    &--btn {
+      width: 700px;
+      height: 40px;
+      cursor: pointer;
+      border: 2px solid rgb(10, 166, 228);
+      background-color: rgb(10, 166, 228);
+      color: white;
+      border-radius: 5px;
+      transition: .3s;
+    }
+    &--btn:hover {
+      color: rgb(10, 166, 228);
+      background-color: white;
+    }
+  }
+}

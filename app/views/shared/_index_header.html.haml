@@ -8,7 +8,7 @@
         .index-header__right--login
           %ul.devise-login
             %li
-              = link_to "", class: "my_post" do
+              = link_to user_path(current_user.id), class: "my_post" do
                 %span 投稿一覧
             %li
               = link_to destroy_user_session_path, method: :delete, class: "log-out" do

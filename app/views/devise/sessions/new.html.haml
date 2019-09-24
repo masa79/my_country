@@ -1,0 +1,25 @@
+= render 'shared/index_header'
+
+%h2 Log in
+.sessions
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .sessions__field
+      .sessions__field__label
+        = f.label :email
+      .sessions__field__input
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "sessions__field__input--box"
+    .sessions__field
+      .sessions__field__label
+        = f.label :password
+      .sessions__field__input
+        %br/
+        = f.password_field :password, autocomplete: "current-password", class: "sessions__field__input--box"
+    - if devise_mapping.rememberable?
+      .sessions__field
+        .sessions__field__checkbox
+          = f.check_box :remember_me
+        .sessions__field__label
+          = f.label :remember_me
+    .sessions__actions
+      = f.submit "Log in", class: "sessions__actions--btn"

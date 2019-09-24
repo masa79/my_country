@@ -10,12 +10,29 @@
     .top__core__contents
       - @locals.each do |local|
         .top__core__contents__box
-          = link_to local_path(local.id), class: "top__core__contents__box--link" do
-            .top__core__contents__box--image
-              = image_tag "#{local.images.first.url}", class: "top__core__contents__box--image--url"
-            .top__core__contents__box--title
-              = local.title
-            .top__core__contents__box--prefecture
-              = local.prefecture
-            .top__core__contents__box--city
-              = local.city
+          - if user_signed_in?
+            = link_to local_path(local.id), class: "top__core__contents__box--link" do
+              .top__core__contents__box--image
+                = image_tag "#{local.images.first.url}", class: "top__core__contents__box--image--url"
+              .top__core__contents__box--title
+                = local.title
+              .top__core__contents__box--user
+                投稿者:
+                = local.user.nickname
+              .top__core__contents__box--prefecture
+                = local.prefecture
+              .top__core__contents__box--city
+                = local.city
+          - else
+            = link_to root_path, class: "top__core__contents__box--link" do
+              .top__core__contents__box--image
+                = image_tag "#{local.images.first.url}", class: "top__core__contents__box--image--url"
+              .top__core__contents__box--title
+                = local.title
+              .top__core__contents__box--user
+                投稿者:
+                = local.user.nickname
+              .top__core__contents__box--prefecture
+                = local.prefecture
+              .top__core__contents__box--city
+                = local.city

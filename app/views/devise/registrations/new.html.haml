@@ -1,0 +1,37 @@
+= render 'shared/index_header'
+
+%h2 Sign up
+.registration
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .registration__field
+      .registration__field__label
+        = f.label :nickname
+        %em
+        (10 文字以内)
+      .registration__field__input
+        %br/
+        = f.text_field :nickname, autofocus: true, maxlength: "10", class: "registration__field__input--box"
+    .registration__field
+      .registration__field__label
+        = f.label :email
+      .registration__field__input
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "registration__field__input--box"
+    .registration__field
+      .registration__field__label
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} 文字以上)
+      .registration__field__input
+        %br/
+        = f.password_field :password, autocomplete: "new-password", class: "registration__field__input--box"
+    .registration__field
+      .registration__field__label
+        = f.label :password_confirmation
+      .registration__field__input
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: "registration__field__input--box"
+    .registration__actions
+      = f.submit "Sign up", class: "registration__actions--btn"

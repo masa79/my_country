@@ -1,10 +1,16 @@
 = render 'shared/index_header'
 
+%h3 コメント一覧
 .comment
-  %h1 コメント一覧
   .comment__index
     - if @comments
       - @comments.each do |comment|
-        %p
-          .comment__index__text
-            = comment.text
+        .comment__index__box
+          = link_to local_path(comment.local_id), class: "comment__index__box--link" do
+            = comment.local.title
+          %p
+            .comment__index__box--user 
+              = comment.user.nickname
+            .comment__index__box--middle :
+            .comment__index__box--text
+              = comment.text

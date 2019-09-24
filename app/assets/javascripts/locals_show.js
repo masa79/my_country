@@ -5,4 +5,18 @@ $(document).on('turbolinks:load', function() {
   function() {
     $(this).css('color', '');
   });
+
+  $(".locals__edit__link--btn").hover(function() {
+    $(this).css('color', '#00BFFF');
+  },
+  function() {
+    $(this).css('color', '');
+  });
+
+  $(".locals__edit__delete--btn").hover(function() {
+    $(this).css('color', '#00BFFF');
+  },
+  function() {
+    $(this).css('color', '');
+  })
 });

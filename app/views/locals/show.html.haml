@@ -10,6 +10,9 @@
       .locals__detail__main--image
         = image_tag "#{@local.images.first.url}", class: "top__core__contents__box--image--url"
       .locals__detail__main--bottom__line
+      .locals__detail__main--name
+        投稿者:
+        = @local.user.nickname
       .locals__detail__main--prefecture
         都道府県:
         = @local.prefecture
@@ -32,7 +35,7 @@
         - else
           = @local.supermarket
       .locals__detail__main--department
-        デパート・ショッピングモール:
+        大型複合施設:
         - if @local.department.nil?
           ""
         - else
@@ -55,13 +58,28 @@
           ""
         - else
           = @local.interchange
+  
+  // 紹介の編集・削除機能
+  .locals__edit
+    - if current_user.id == @local.user.id
+      .locals__edit__link
+        = link_to edit_local_path(@local), class: "locals__edit__link--btn" do
+          編集する
+      .locals__edit__delete
+        = link_to local_path(@local), method: :delete, class: "locals__edit__delete--btn" do
+          削除する
+
   // コメント記入、投稿機能
   .locals__comment
     .locals__comment__write
       = form_with model: @comment, url: local_comments_path(@local), local: true do |f|
         .locals__comment__write__box
-          = f.text_area :text, class: "locals__comment__write__box--field"
-          = f.submit 'コメント', class: "locals__comment__write__box--btn"
+          = f.text_area :text, class: "locals__comment__write__box--field", id: "comment_field"
+        - if current_user.id == @local.user.id
+          .locals__comment__write__box--disable
+            コメントはできません
+        - else
+          = f.submit 'コメント', class: "locals__comment__write__box--btn", id: "comment_btn"
 
     .locals__comment__link
       = link_to local_comments_path(@local), class: "locals__comment__link--btn" do

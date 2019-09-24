@@ -30,6 +30,8 @@
       border-radius: 5px;
       box-shadow: 0 2px 5px #ccc;
       text-decoration: none;
+      margin: 40px 25px;
+      display: inline-block;
       &--link {
         text-decoration: none;
       }
@@ -44,11 +46,18 @@
         color: #333;
         font-weight: bold;
       }
-      &--prefecture {
+      &--user {
         color: #333;
         line-height: 1.5;
         font-size: 15px;
         display: inline-block;
+      }
+      &--prefecture {
+        color: #333;
+        line-height: 1.5;
+        font-size: 15px;
+        display: inline;
+        margin-left: 15px;
       }
       &--city {
         color: #333;
