@@ -25,13 +25,36 @@ class LocalsController < ApplicationController
     @local = Local.find(params[:id])
   end
 
+  def edit
+    @local = Local.find(params[:id])
+    @image = @local.images
+  end
+
+  def destroy
+    @local = Local.destroy(params[:id])
+    redirect_to root_path
+  end
+
+  def update
+    @local = Local.find(params[:id])
+    if @local.user.id == current_user.id
+      @local.update(local_params)
+      @local.images.each do |image|
+        image.destroy
+      end
+
+      @image = Image.new(image_params)
+      @image.save
+    end
+  end
+
   private
 
   def local_params
     params.require(:local).permit(
       :title,
       :prefecture,
-      :city, 
+      :city,
       :restaurant,
       :supermarket,
       :department,
@@ -39,7 +62,7 @@ class LocalsController < ApplicationController
       :station,
       :interchange,
       :description,
-      images_attributes: [:url]
+      # images_attributes: [:url]
     ).merge(user_id: current_user.id)
   end
 
