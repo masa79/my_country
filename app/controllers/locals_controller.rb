@@ -37,14 +37,15 @@ class LocalsController < ApplicationController
 
   def update
     @local = Local.find(params[:id])
-    if @local.user.id == current_user.id
-      @local.update(local_params)
+    if @local.update(local_params)
       @local.images.each do |image|
         image.destroy
       end
 
       @image = Image.new(image_params)
       @image.save
+    else
+      render :edit
     end
   end
 

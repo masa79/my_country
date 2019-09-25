@@ -49,6 +49,10 @@ test:
 #
 production:
   <<: *default
-  database: my_country_production
-  username: my_country
-  password: <%= ENV['MY_COUNTRY_DATABASE_PASSWORD'] %>
+  # database: my_country_production
+  # username: my_country
+  # password: <%= ENV['MY_COUNTRY_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
