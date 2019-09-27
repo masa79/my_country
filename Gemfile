@@ -61,7 +61,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 0.19.0'
+  gem 'pg', '~> 0.20'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -77,3 +77,4 @@ gem "dropzonejs-rails", '~> 0.8.4'
 gem "nokogiri", ">= 1.10.4"
 gem 'erb2haml'
 gem 'fog-aws'
+gem 'activerecord-nulldb-adapter'

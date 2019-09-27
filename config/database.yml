@@ -55,4 +55,5 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
+  adapter: <%= ENV['DB_ADAPTER'] ||= 'postgresql' %>
 
