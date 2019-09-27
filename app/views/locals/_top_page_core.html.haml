@@ -3,8 +3,12 @@
   
     // 投稿画面への遷移
     .top__core__post
-      = link_to new_local_path, class: "top__core__post--link" do
-        投稿する
+      - if user_signed_in?
+        = link_to new_local_path, class: "top__core__post--link" do
+          投稿する
+      - else
+        = link_to new_user_session_path, class: "top__core__post--link" do
+          投稿する
 
     // 投稿一覧の表示
     .top__core__contents
@@ -24,7 +28,7 @@
               .top__core__contents__box--city
                 = local.city
           - else
-            = link_to root_path, class: "top__core__contents__box--link" do
+            = link_to new_user_session_path, class: "top__core__contents__box--link" do
               .top__core__contents__box--image
                 = image_tag "#{local.images.first.url}", class: "top__core__contents__box--image--url"
               .top__core__contents__box--title

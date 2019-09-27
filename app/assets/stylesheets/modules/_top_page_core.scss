@@ -31,7 +31,8 @@
       box-shadow: 0 2px 5px #ccc;
       text-decoration: none;
       margin: 40px 25px;
-      display: inline-block;
+      // display: inline-block;
+      float: left;
       &--link {
         text-decoration: none;
       }
